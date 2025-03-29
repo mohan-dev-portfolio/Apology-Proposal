@@ -3,83 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I'm Sorry 💔 | Patch Up Request</title>
-    <style>
-        body {
-            background-color: #1a1a2e;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            color: #ff4d6d;
-        }
-        .container {
-            max-width: 500px;
-            margin: auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 77, 109, 0.5);
-        }
-        .question {
-            margin: 15px 0;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: none;
-            border-radius: 5px;
-        }
-        button {
-            background: #ff4d6d;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 15px;
-        }
-        button:hover {
-            background: #e63950;
-        }
-    </style>
+    <title>Patch Up Request</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>I'm Really Sorry 💔</h1>
-    <p>I know I hurt you, and I deeply regret it. Please answer these questions...</p>
     <div class="container">
-        <div class="question">
-            <label>Who is the website owner to you?</label>
-            <input type="text" id="q1">
-        </div>
-        <div class="question">
-            <label>How much do you love him?</label>
-            <textarea id="q2"></textarea>
-        </div>
-        <div class="question">
-            <label>Will you leave him?</label>
-            <input type="text" id="q3">
-        </div>
-        <div class="question">
-            <label>Will you forgive him?</label>
-            <input type="text" id="q4">
-        </div>
-        <button onclick="saveResponse()">Submit 💌</button>
+        <h1>Patch Up Request 💖</h1>
+        <form id="questionForm">
+            <label>1. Who is the website owner to you?</label>
+            <input type="text" required><br>
+
+            <label>2. How much do you love him?</label>
+            <input type="text" required><br>
+
+            <label>3. Will you leave him?</label>
+            <select required>
+                <option value="No">No</option>
+                <option value="Never">Never</option>
+            </select><br>
+
+            <label>4. Will you forgive him?</label>
+            <select required>
+                <option value="Yes">Yes</option>
+                <option value="Of course">Of course</option>
+            </select><br>
+
+            <button type="submit">Submit</button>
+        </form>
     </div>
+
     <script>
-        function saveResponse() {
-            let responses = {
-                q1: document.getElementById('q1').value,
-                q2: document.getElementById('q2').value,
-                q3: document.getElementById('q3').value,
-                q4: document.getElementById('q4').value
-            };
-            localStorage.setItem('apologyResponses', JSON.stringify(responses));
-            window.location.href = "letter.html";
-        }
+        document.getElementById("questionForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            window.location.href = "apology.html";
+        });
     </script>
 </body>
 </html>
