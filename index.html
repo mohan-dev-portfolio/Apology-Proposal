@@ -45,18 +45,6 @@
         button:hover {
             background: #e63950;
         }
-        .hearts {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 24px;
-            animation: float 3s infinite;
-        }
-        @keyframes float {
-            0% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-100px); }
-        }
     </style>
 </head>
 <body>
@@ -81,7 +69,6 @@
         </div>
         <button onclick="saveResponse()">Submit 💌</button>
     </div>
-    <p id="message" style="display: none; color: #ff4d6d; font-size: 18px;">Thank you for answering. Hope we patch up soon! ❤️</p>
     <script>
         function saveResponse() {
             let responses = {
@@ -91,7 +78,7 @@
                 q4: document.getElementById('q4').value
             };
             localStorage.setItem('apologyResponses', JSON.stringify(responses));
-            document.getElementById('message').style.display = 'block';
+            window.location.href = "letter.html";
         }
     </script>
 </body>
